@@ -1,0 +1,27 @@
+p {
+    margin: 40px 15px;
+  }
+  
+.time {
+    font-size: 26px;
+  }
+
+input {
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 2px;
+  }
+
+.start {
+    color: #000;
+    border: 1px solid #777;
+  }
+  
+.stop, .reset {
+    color: #bbb;
+    border: 1px solid #bbb;
+  }
+  
+
+

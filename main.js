@@ -1,4 +1,4 @@
-let a = 0;
+let a = 0 ;
 let digitA = document.getElementById("digitA");
 let b = 0;
 let digitB = document.getElementById("digitB");
@@ -14,42 +14,50 @@ let timerD;
 function start() {
    timerA = setInterval(countUpA, 100);
    timerB = setInterval(countUpB, 1000);
-   timerC = setInterval(countUpC, 10000);
-   timerD = setInterval(countUpD, 100000);
+   timerC = setInterval(countUpC, 60000); //修正：１分ごとに実行
+   timerD = setInterval(countUpD, 600000); //修正：１時間ごとに実行
   
   function countUpA(){
     a++;
-    digitA.innerHTML = a;
-    if(a>9) {
-    a=0
-    digitA.innerHTML = a;
+    let numA = ("00" + a).slice(-2); //追加：常に二桁表示
+    digitA.innerHTML = numA;
+    if(a>99) {　
+    a=0;
+    let numA = ("00" + a).slice(-2);
+    digitA.innerHTML = numA;
     }
   }
 
   function countUpB(){
     b++;
-    digitB.innerHTML = b;
-    if(b>9) {
-    b=0
-    digitB.innerHTML = b;
+    let numB = ("00" + b).slice(-2); //追加：常に二桁表示
+    digitB.innerHTML = numB;
+    if(b>59) {  //修正：1分経過で0に戻る
+    b=0;
+    let numB = ("00" + b).slice(-2);
+    digitB.innerHTML = numB;
     }
   }
 
   function countUpC(){
     c++;
-    digitC.innerHTML = c;
-    if(c>9) {
-    c=0
-    digitC.innerHTML = c;
+    let numC = ("00" + c).slice(-2); //追加：常に二桁表示
+    digitC.innerHTML = numC;
+    if(c>59) {　//修正：1時間経過で0に戻る
+    c=0;
+    let numC = ("00" + c).slice(-2);
+    digitC.innerHTML = numC;
     }
   }
    
   function countUpD(){
     d++;
-    digitD.innerHTML = d;
-    if(d>9) {
-    d=0
-    digitC.innerHTML = d;
+    let numD = ("00" + d).slice(-2); //追加：常に二桁表示
+    digitD.innerHTML = numD;
+    if(d>23) {　//24時間経過で0に戻る
+    d=0;
+    let numD = ("00" + d).slice(-2); 
+    digitD.innerHTML = numD;
     }
   }
 }
@@ -70,10 +78,10 @@ function reset() {
   b = 0;
   c = 0;
   d = 0;
-  digitA.innerHTML = 0;
-  digitB.innerHTML = 0;
-  digitC.innerHTML = 0;
-  digitD.innerHTML = 0;
+  digitA.innerHTML = "00";　//修正：リセット時も二桁表示
+  digitB.innerHTML = "00";
+  digitC.innerHTML = "00";
+  digitD.innerHTML = "00";
 }
 
 $(document).ready(function(){
